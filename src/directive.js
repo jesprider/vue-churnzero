@@ -9,10 +9,15 @@ export default {
         }
 
         const handler = () => {
-            const fn = typeof binding.value === 'string' ? config.commands[binding.value] : binding.value;
+            const fn =
+                typeof binding.value === 'string'
+                    ? config.commands[binding.value]
+                    : binding.value;
 
             if (!fn) {
-                throw new Error('[vue-churnzero] The value passed to v-cz is not defined in the commands list.');
+                throw new Error(
+                    '[vue-churnzero] The value passed to v-cz is not defined in the commands list.'
+                );
             }
 
             fn.apply(vnode.context);

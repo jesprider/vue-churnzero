@@ -10,7 +10,16 @@ import loadScript from './utils/loader';
 import promisify from './utils/promisify';
 
 export default function install(Vue, options = {}) {
-    const { appKey, accountId, contactId, url, isDisabled, router, routerEventName, isDebugMode } = options;
+    const {
+        appKey,
+        accountId,
+        contactId,
+        url,
+        isDisabled,
+        router,
+        routerEventName,
+        isDebugMode,
+    } = options;
 
     if (isDisabled) {
         Vue.directive('cz', {});
@@ -24,7 +33,9 @@ export default function install(Vue, options = {}) {
     }
 
     if (!appKey) {
-        throw new Error('[vue-churnzero] Missing the "appKey" parameter. Add App Key from your account.');
+        throw new Error(
+            '[vue-churnzero] Missing the "appKey" parameter. Add App Key from your account.'
+        );
     }
 
     if (!accountId) {
@@ -56,7 +67,11 @@ export default function install(Vue, options = {}) {
         trackRoutes(router, config.routerEventName);
     }
 
-    const queue = [promisify(appKey), promisify(accountId), promisify(contactId)];
+    const queue = [
+        promisify(appKey),
+        promisify(accountId),
+        promisify(contactId),
+    ];
 
     if (!window.ChurnZero) {
         queue.push(
