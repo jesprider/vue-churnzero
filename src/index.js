@@ -20,6 +20,7 @@ export default function install(Vue, options = {}) {
         routerEventName,
         isDebugMode,
         isEurope,
+        commands,
     } = options;
 
     if (isDisabled) {
@@ -60,6 +61,10 @@ export default function install(Vue, options = {}) {
         throw new Error(
             "[vue-churnzero] url and isEurope properties can't be used together." // eslint-disable-line
         );
+    }
+
+    if (commands) {
+        config.commands = commands;
     }
 
     Vue.directive('cz', directive);
