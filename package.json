@@ -1,7 +1,7 @@
 {
   "name": "vue-churnzero",
   "description": "ChurnZero plugin for Vue",
-  "version": "0.1",
+  "version": "0.1.0",
   "main": "src/index.js",
   "devDependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
