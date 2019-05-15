@@ -19,6 +19,8 @@ export default function install(Vue, options = {}) {
         router,
         routerEventName,
         isDebugMode,
+        isEurope,
+        commands,
     } = options;
 
     if (isDisabled) {
@@ -55,6 +57,16 @@ export default function install(Vue, options = {}) {
         );
     }
 
+    if (url && isEurope) {
+        throw new Error(
+            "[vue-churnzero] url and isEurope properties can't be used together." // eslint-disable-line
+        );
+    }
+
+    if (commands) {
+        config.commands = commands;
+    }
+
     Vue.directive('cz', directive);
     Vue.prototype.$cz = lib;
     Vue.$cz = lib;
@@ -74,8 +86,18 @@ export default function install(Vue, options = {}) {
     ];
 
     if (!window.ChurnZero) {
+        let scriptUrl = config.url;
+
+        if (url) {
+            scriptUrl = url;
+        }
+
+        if (isEurope) {
+            scriptUrl = config.europeUrl;
+        }
+
         queue.push(
-            loadScript(url || config.url).catch(() => {
+            loadScript(scriptUrl).catch(() => {
                 throw new Error(
                     '[vue-analytics] An error occured! Please check your connection, ' +
                         'if you have any Google Analytics blocker installed in your browser ' +

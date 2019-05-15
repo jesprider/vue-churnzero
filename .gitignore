@@ -65,3 +65,6 @@ typings/
 
 # VSCode
 .vscode
+
+# Ctags
+tags
