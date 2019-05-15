@@ -118,3 +118,5 @@ export default function install(Vue, options = {}) {
         config.untracked = [];
     });
 }
+
+export { default as trackEvent } from './lib/event';
