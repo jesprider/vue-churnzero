@@ -20,13 +20,13 @@ Vue ^2.0.0
 ## Install
 
 ```bash
-npm install vue-analytics
+npm install vue-churnzero
 ```
 
 or
 
 ```bash
-yarn add vue-analytics
+yarn add vue-churnzero
 ```
 
 
@@ -36,7 +36,7 @@ After installing the package you can start using the plugin in your Vue applicat
 
 ```js
 import Vue from 'vue'
-import VueChurnZero from './vue-churnzero';
+import VueChurnZero from 'vue-churnzero';
 
 Vue.use(VueChurnZero, {
     appKey: YOUR_APP_KEY,
@@ -102,7 +102,7 @@ If you want to keep all of you tracking methods separately in one place, you can
 
 ```js
 import Vue from 'vue'
-import VueChurnZero from './vue-churnzero';
+import VueChurnZero from 'vue-churnzero';
 
 Vue.use(VueChurnZero, {
     appKey: YOUR_APP_KEY,
